@@ -151,12 +151,7 @@
            <div class='menu__cart-product__title'>{{product.title}}</div>
 
            <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes  }}>
-            {%- render 'price',
-               product: product money,
-               use_variant: true,
-               show_badges: false,
-               price_class: 'price--large', 
-             -%}
+            {%- render 'price', product: product, use_variant: true, show_badges: false, price_class: 'price--large' -%}
            </div>    
 
          </div>
@@ -214,3 +209,16 @@
   "presets": [{ "name": "video-and-product" }]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- render 'price',\n               product: product money,\n               use_variant:
+    true,\n               show_badges: false,\n               price_class: 'price--large',
+    \n             -%}"
+  to: "{%- render 'price', product: product, use_variant: true, show_badges: false,
+    price_class: 'price--large' -%}"
+  position: 10565..10673
+{% endcomment %}

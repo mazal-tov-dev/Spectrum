@@ -80,13 +80,7 @@
                   <div class="menu__cart-product__title">{{ product.title }}</div>
 
                   <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
-                    {%-
-                      render 'price',
-                      product: product money,
-                      use_variant: true,
-                      show_badges: false,
-                      price_class: 'price--large',
-                    -%}
+                    {%- render 'price', product: product, use_variant: true, show_badges: false, price_class: 'price--large' -%}
                   </div>
 
                   {% comment %} rating {% endcomment %}
@@ -226,3 +220,21 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%-
+                          render 'price',
+                          product: product money,
+                          use_variant: true,
+                          show_badges: false,
+                          price_class: 'price--large',
+                        -%}
+  to: "{%- render 'price', product: product, use_variant: true, show_badges: false,
+    price_class: 'price--large' -%}"
+  position: 5314..5422
+{% endcomment %}
